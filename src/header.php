@@ -13,6 +13,10 @@
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
 		<?php wp_head(); ?>
+
+		<script src="https://use.typekit.net/bro4xhw.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 		<script>
         // conditionizr.com
         // configure environment tests
@@ -20,7 +24,11 @@
             assets: '<?php echo get_template_directory_uri(); ?>',
             tests: {}
         });
-        </script>
+    </script>
+
+		<div style="height: 0; width: 0; position: absolute; visibility: hidden;">
+			<?php include(locate_template('img/svg.svg')); ?>
+		</div>
 
 	</head>
 	<body <?php body_class(); ?>>
@@ -35,7 +43,7 @@
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/svg/logo.svg" alt="Logo" class="logo-img">
 						</a>
 					</div>
 					<!-- /logo -->
@@ -46,5 +54,10 @@
 					</nav>
 					<!-- /nav -->
 
+					<?php get_template_part('searchform'); ?>
+
 			</header>
 			<!-- /header -->
+
+		</div>
+		<!-- /wrapper -->

@@ -4,6 +4,9 @@
  * Main `sass` file. Import here `sass` files
  */
 
+ // susy
+ @import "../../bower_components/susy/sass/susy";
+
 // Modules
 @import "modules/variables";
 @import "modules/mixins";
@@ -19,3 +22,4 @@
 @import "partials/sidebar";
 @import "partials/footer";
 @import "partials/print";
+@import "partials/pages";

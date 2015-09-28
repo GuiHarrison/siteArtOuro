@@ -17,3 +17,65 @@
   font-style: normal;
 }
 */
+
+
+@import url(http://fonts.googleapis.com/css?family=Martel:200);
+
+h1.h1azul {
+  font-family: "Martel", serif;
+  font-weight: 100;
+  font-size: 9rem;
+  color: $azul;
+  margin-bottom: 0;
+  margin-left: 80px;
+
+  @include susy-breakpoint(0 $cel, 2) {
+  	display: none;
+  	font-size: 6rem;
+  	margin-left: 0;
+  	margin-top: 80px;
+  }
+}
+
+h1 {
+  font-family: "Martel", serif;
+  font-size: 4rem;
+  color: $azul;
+  margin-bottom: 0;
+}
+
+h1.historia {
+  font-size: 6rem;
+  color: darken($vermei, 20);
+  font-style: italic;
+  font-family: $ff-alt;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 3.5rem;
+  font-family: $ff-alt;
+  font-style: italic;
+  color: $azul;
+}
+
+h4.chapeu {
+  display: block;
+  @include pre(2);
+  border-bottom: 1px solid $vermei;
+  font-style: italic;
+  font-size: 3rem;
+  color: darken($cinza-claro, 10);
+  font-family: $ff-alt;
+  font-weight: 100;
+
+  padding-top: 80px;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+p {
+  font-family: "Martel", serif;
+  font-size: 1.8rem;
+  line-height: 180%;
+}

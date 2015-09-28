@@ -5,7 +5,11 @@
  * Custom functions, support, custom post types and more.
  */
 
+
+$functions_path = TEMPLATEPATH . '/modules/';
+
 require_once "modules/is-debug.php";
+require_once ($functions_path . "theme-customizer.php");
 
 /*------------------------------------*\
     External Modules/Files
@@ -128,10 +132,10 @@ function html5blank_header_scripts()
 // Load HTML5 Blank conditional scripts
 function html5blank_conditional_scripts()
 {
-    if (is_page('pagenamehere')) {
+    if (is_page('compra-segura')) {
         // Conditional script(s)
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0');
-        wp_enqueue_script('scriptname');
+        wp_register_script('compra-segura', get_template_directory_uri() . '/js/compra-segura.js', array('jquery'), '1.0.0');
+        wp_enqueue_script('compra-segura');
     }
 }
 

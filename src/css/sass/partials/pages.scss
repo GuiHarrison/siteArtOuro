@@ -1,0 +1,36 @@
+/**
+* partials/pages
+*/
+section {
+  position: relative;
+  background-color: lighten($cinza-claro, 20);
+  overflow: hidden;
+
+  article {
+    @include span(5);
+    @include pre(1.5);
+    @include post(0.5);
+    margin-top: 40px;
+
+    .compra-segura {
+      width: 300px;
+      height: 300px;
+      display: block;
+      margin: auto;
+      margin-bottom: 50px;
+    }
+  }
+
+  .lateral {
+    @include span(5);
+    height: 0;
+    background-size: cover;
+    background-position: 0 50%;
+
+    transition: height 2s;
+
+    &.lateralNossaMarca {
+      margin-top: 40px;
+    }
+  }
+}
