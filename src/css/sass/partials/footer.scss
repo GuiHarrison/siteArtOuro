@@ -4,4 +4,17 @@
  */
 
 
-.footer {}
+.footer {
+  background-color: $cinza-claro;
+  position: relative;
+  overflow: hidden;
+
+  .colunaRodape {
+    @include span($col/4);
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
