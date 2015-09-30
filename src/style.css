@@ -15,6 +15,36 @@
  * ---
  * Main `sass` file. Import here `sass` files
  */
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
 /**
  * modules/variables
  * ---
@@ -31,6 +61,63 @@
 /**
  * Sprites
  */
+@import url(http://fonts.googleapis.com/css?family=Martel:200);
+.diamond {
+  background-image: url(sprite.png);
+  background-position: -244px 0px;
+  width: 103px;
+  height: 66px;
+}
+
+.facebook {
+  background-image: url(sprite.png);
+  background-position: -244px -155px;
+  width: 22px;
+  height: 47px;
+}
+
+.gplus {
+  background-image: url(sprite.png);
+  background-position: -244px -66px;
+  width: 51px;
+  height: 47px;
+}
+
+.instagram {
+  background-image: url(sprite.png);
+  background-position: -300px -113px;
+  width: 41px;
+  height: 42px;
+}
+
+.newsletter {
+  background-image: url(sprite.png);
+  background-position: 0px 0px;
+  width: 244px;
+  height: 113px;
+}
+
+.receba {
+  background-image: url(sprite.png);
+  background-position: 0px -113px;
+  width: 190px;
+  height: 118px;
+}
+
+.twitter {
+  background-image: url(sprite.png);
+  background-position: -295px -66px;
+  width: 52px;
+  height: 42px;
+}
+
+.youtube {
+  background-image: url(sprite.png);
+  background-position: -244px -113px;
+  width: 56px;
+  height: 42px;
+}
+
 /**
  * media queries
  */
@@ -55,7 +142,6 @@
   font-style: normal;
 }
 */
-@import url(http://fonts.googleapis.com/css?family=Martel:200);
 h1.h1azul {
   font-family: "Martel", serif;
   font-weight: 100;
@@ -282,23 +368,23 @@ nav {
   padding-left: 1.3888888889%;
   padding-right: 1.3888888889%;
 }
-nav .menu ul {
+nav ul {
   list-style: none;
   padding: 0;
   padding: 30px 0;
 }
-nav .menu ul li {
+nav ul li {
   display: inline-block;
   border-right: 1px solid #d5d2d7;
 }
-nav .menu ul li:last-child {
+nav ul li:last-child {
   border: none;
 }
-nav .menu ul li a {
+nav ul li a {
   display: block;
   width: 100%;
-  padding: 7px 10px;
-  font-family: "Martel", serif;
+  padding: 7px 20px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
 }
 
 .search {
@@ -358,7 +444,7 @@ nav .menu ul li a {
  * ---
  */
 .footer {
-  background-color: #bdb4b2;
+  background-color: #eaeaea;
   position: relative;
   overflow: hidden;
 }
@@ -369,10 +455,124 @@ nav .menu ul li a {
   float: left;
   padding-left: 1.3888888889%;
   padding-right: 1.3888888889%;
+  padding: 20px 0;
 }
-.footer ul {
+.footer .colunaRodape svg {
+  max-width: 60%;
+}
+.footer .colunaRodape ul {
   list-style: none;
   padding-left: 0;
+}
+.footer .colunaRodape ul li {
+  display: block;
+}
+.footer .colunaRodape ul li a {
+  color: #88818f;
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  font-family: "adobe-caslon-pro", serif;
+  line-height: 1;
+  font-size: 2rem;
+}
+.footer #frm_form_6_container {
+  margin: 40px 0;
+  position: relative;
+  height: 150px;
+  width: 90%;
+}
+.footer #frm_form_6_container #chamadaAssine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent url(img/sprites/newsletter.png) 0 0 no-repeat;
+  background-size: contain;
+}
+@media (min-width: 0) and (max-width: 480px) {
+  .footer #frm_form_6_container #chamadaAssine {
+    display: none;
+  }
+}
+.footer #frm_form_6_container #chamadaAssine.passouOmouse {
+  display: none;
+}
+.footer #frm_form_6_container input#field_jprdvm {
+  border-radius: 0;
+}
+.footer #frm_form_6_container input[type="submit"] {
+  z-index: 2;
+  position: absolute;
+  top: 75px;
+  right: 5px;
+  background-color: #509cbb !important;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 0;
+  padding: 5px 15px;
+  font-size: 1.8rem;
+}
+@media (min-width: 480px) and (max-width: 1360px) {
+  .footer #frm_form_6_container input[type="submit"] {
+    margin-top: 50px;
+    width: 100%;
+  }
+}
+
+#redes {
+  padding: 0;
+  margin-bottom: 60px;
+}
+@media (min-width: 0) and (max-width: 1199px) {
+  #redes {
+    margin: 50px 0 50px 0;
+    padding: 0;
+    overflow: hidden;
+  }
+}
+#redes li {
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  width: 55px;
+  float: left;
+}
+#redes li a {
+  display: block;
+  margin: auto;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+#redes li a.facebook {
+  width: 30px;
+}
+#redes li a.instagram {
+  width: 45px;
+}
+
+#listaPags {
+  padding-top: 50px;
+  line-height: 2;
+}
+
+#visiteTambem {
+  text-align: right;
+}
+#visiteTambem h5 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #88818f;
+  margin-bottom: 0;
+}
+#visiteTambem a {
+  font-size: 2rem;
+  display: block;
+  clear: both;
+  color: #88818f;
+  line-height: 2;
 }
 
 /**
@@ -451,7 +651,7 @@ nav .menu ul li a {
 */
 section {
   position: relative;
-  background-color: #ece9e9;
+  background-color: #f7f7f7;
   overflow: hidden;
 }
 section article {

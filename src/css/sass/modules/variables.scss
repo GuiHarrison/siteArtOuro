@@ -61,7 +61,7 @@ $margin-vertical-large: 15px;
  * Sprites
  */
 
-// @include sprites($spritesheet-sprites);
+@include sprites($spritesheet-sprites);
 
 /**
  * media queries

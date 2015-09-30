@@ -1,0 +1,158 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$diamond-name: 'diamond';
+$diamond-x: 244px;
+$diamond-y: 0px;
+$diamond-offset-x: -244px;
+$diamond-offset-y: 0px;
+$diamond-width: 103px;
+$diamond-height: 66px;
+$diamond-total-width: 347px;
+$diamond-total-height: 231px;
+$diamond-image: 'sprite.png';
+$diamond: (244px, 0px, -244px, 0px, 103px, 66px, 347px, 231px, 'sprite.png', 'diamond', );
+$facebook-name: 'facebook';
+$facebook-x: 244px;
+$facebook-y: 155px;
+$facebook-offset-x: -244px;
+$facebook-offset-y: -155px;
+$facebook-width: 22px;
+$facebook-height: 47px;
+$facebook-total-width: 347px;
+$facebook-total-height: 231px;
+$facebook-image: 'sprite.png';
+$facebook: (244px, 155px, -244px, -155px, 22px, 47px, 347px, 231px, 'sprite.png', 'facebook', );
+$gplus-name: 'gplus';
+$gplus-x: 244px;
+$gplus-y: 66px;
+$gplus-offset-x: -244px;
+$gplus-offset-y: -66px;
+$gplus-width: 51px;
+$gplus-height: 47px;
+$gplus-total-width: 347px;
+$gplus-total-height: 231px;
+$gplus-image: 'sprite.png';
+$gplus: (244px, 66px, -244px, -66px, 51px, 47px, 347px, 231px, 'sprite.png', 'gplus', );
+$instagram-name: 'instagram';
+$instagram-x: 300px;
+$instagram-y: 113px;
+$instagram-offset-x: -300px;
+$instagram-offset-y: -113px;
+$instagram-width: 41px;
+$instagram-height: 42px;
+$instagram-total-width: 347px;
+$instagram-total-height: 231px;
+$instagram-image: 'sprite.png';
+$instagram: (300px, 113px, -300px, -113px, 41px, 42px, 347px, 231px, 'sprite.png', 'instagram', );
+$newsletter-name: 'newsletter';
+$newsletter-x: 0px;
+$newsletter-y: 0px;
+$newsletter-offset-x: 0px;
+$newsletter-offset-y: 0px;
+$newsletter-width: 244px;
+$newsletter-height: 113px;
+$newsletter-total-width: 347px;
+$newsletter-total-height: 231px;
+$newsletter-image: 'sprite.png';
+$newsletter: (0px, 0px, 0px, 0px, 244px, 113px, 347px, 231px, 'sprite.png', 'newsletter', );
+$receba-name: 'receba';
+$receba-x: 0px;
+$receba-y: 113px;
+$receba-offset-x: 0px;
+$receba-offset-y: -113px;
+$receba-width: 190px;
+$receba-height: 118px;
+$receba-total-width: 347px;
+$receba-total-height: 231px;
+$receba-image: 'sprite.png';
+$receba: (0px, 113px, 0px, -113px, 190px, 118px, 347px, 231px, 'sprite.png', 'receba', );
+$twitter-name: 'twitter';
+$twitter-x: 295px;
+$twitter-y: 66px;
+$twitter-offset-x: -295px;
+$twitter-offset-y: -66px;
+$twitter-width: 52px;
+$twitter-height: 42px;
+$twitter-total-width: 347px;
+$twitter-total-height: 231px;
+$twitter-image: 'sprite.png';
+$twitter: (295px, 66px, -295px, -66px, 52px, 42px, 347px, 231px, 'sprite.png', 'twitter', );
+$youtube-name: 'youtube';
+$youtube-x: 244px;
+$youtube-y: 113px;
+$youtube-offset-x: -244px;
+$youtube-offset-y: -113px;
+$youtube-width: 56px;
+$youtube-height: 42px;
+$youtube-total-width: 347px;
+$youtube-total-height: 231px;
+$youtube-image: 'sprite.png';
+$youtube: (244px, 113px, -244px, -113px, 56px, 42px, 347px, 231px, 'sprite.png', 'youtube', );
+$spritesheet-width: 347px;
+$spritesheet-height: 231px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($diamond, $facebook, $gplus, $instagram, $newsletter, $receba, $twitter, $youtube, );
+$spritesheet: (347px, 231px, 'sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
