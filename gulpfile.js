@@ -56,7 +56,6 @@ var gulp = require( "gulp" ),
 	} ());
 
 /** Spritesmith */
-
 gulp.task("sprite", function () {
   var spriteData = gulp.src("src/img/sprites/*.png")
 
