@@ -8,6 +8,7 @@
   background-color: #eaeaea;
   position: relative;
   overflow: hidden;
+  clear: both;
 
   .colunaRodape {
     @include span($col/4);

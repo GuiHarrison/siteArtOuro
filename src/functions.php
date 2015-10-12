@@ -132,9 +132,8 @@ function html5blank_header_scripts()
 // Load HTML5 Blank conditional scripts
 function html5blank_conditional_scripts()
 {
-    if (is_page('compra-segura')) {
-        // Conditional script(s)
-        wp_register_script('compra-segura', get_template_directory_uri() . '/js/compra-segura.js', array('jquery'), '1.0.0');
+    if (is_page('compra-segura' || 'parceria-de-sucesso')) {
+        wp_register_script('compra-segura', get_template_directory_uri() . '/js/imagemLateral.js', array('jquery'), '1.0.0');
         wp_enqueue_script('compra-segura');
     }
 }
@@ -389,7 +388,7 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+// add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -436,42 +435,42 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 \*------------------------------------*/
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
-{
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
-        array(
-        'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-            'add_new' => __('Add New', 'html5blank'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-            'edit' => __('Edit', 'html5blank'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-            'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
-        ),
-        'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => true,
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
-}
+// function create_post_type_html5()
+// {
+//     register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
+//     register_taxonomy_for_object_type('post_tag', 'html5-blank');
+//     register_post_type('html5-blank', // Register Custom Post Type
+//         array(
+//         'labels' => array(
+//             'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
+//             'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
+//             'add_new' => __('Add New', 'html5blank'),
+//             'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
+//             'edit' => __('Edit', 'html5blank'),
+//             'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
+//             'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
+//             'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
+//             'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
+//             'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
+//             'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
+//             'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
+//         ),
+//         'public' => true,
+//         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+//         'has_archive' => true,
+//         'supports' => array(
+//             'title',
+//             'editor',
+//             'excerpt',
+//             'thumbnail'
+//         ), // Go to Dashboard Custom HTML5 Blank post for supports
+//         'can_export' => true, // Allows export in Tools > Export
+//         'taxonomies' => array(
+//             'post_tag',
+//             'category'
+//         ) // Add Category and Post Tags support
+//     ));
+// }
 
 /*------------------------------------*\
     ShortCode Functions

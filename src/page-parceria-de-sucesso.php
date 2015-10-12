@@ -6,38 +6,31 @@
 
 			<div class="wrapper">
 
-
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-				<h4 class="chapeu">
-					<?php the_field('descricao'); ?>
-				</h4>
-
+				<?php
+					$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+					$url = $thumb['0'];
+				?>
 				<!-- article -->
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+					<?php the_title( '<h1 class="tituloMarrom">', '</h1>' ); ?>
 
-					<h1 class="tituloHistoria">
-						<?php the_field('titulo') ?>
-					</h1>
+					<h3 class="bigode"><?php the_field('bigode'); ?></h3>
 
 					<?php the_content(); ?>
-
 					<?php comments_template( '', true ); // Remove if you don't want comments ?>
 
-					<br class="clear">
+					<a class="entreEmContato" href="<?php echo get_permalink( get_page_by_title( 'Contato' ) ); ?>"><?php _e('Entre em contato', 'html5blank'); ?></a>
 
+					<br class="clear">
 					<?php edit_post_link(); ?>
 
 				</article>
 				<!-- /article -->
 
-
-				<div class="lateral lateralNossaMarca">
-					<?php if (has_post_thumbnail()) {
-						the_post_thumbnail();
-					} ?>
-				</div>
+				<div class="lateral" style="background-image:url(<?php echo $url ?>)"></div>
 
 			<?php endwhile; ?>
 
@@ -45,17 +38,16 @@
 
 				<!-- article -->
 				<article>
-
 					<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
 				</article>
 				<!-- /article -->
 
 			<?php endif; ?>
 
+
 			</div>
 
-		</section>
+		</section> 
 		<!-- /section -->
 	</main>
 

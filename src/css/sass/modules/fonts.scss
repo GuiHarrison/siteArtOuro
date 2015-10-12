@@ -44,7 +44,7 @@ h1 {
   margin-bottom: 0;
 }
 
-h1.historia {
+h1.tituloHistoria {
   font-size: 6rem;
   color: darken($vermei, 20);
   font-style: italic;
@@ -52,11 +52,37 @@ h1.historia {
   font-weight: 100;
 }
 
+h1.tituloMarrom {
+  font-size: 8rem;
+  color: $marrom;
+  font-style: italic;
+  font-family: $ff-alt;
+  font-weight: 100;
+  line-height: 1;
+}
+
+h1.tituloBranco {
+  font-size: 8rem;
+  color: #fff;
+  font-style: italic;
+  font-family: $ff-alt;
+  font-weight: 100;
+  line-height: 1;
+}
+
 h2 {
   font-size: 3.5rem;
   font-family: $ff-alt;
   font-style: italic;
   color: $azul;
+}
+
+h3.bigode {
+  font-size: 4rem;
+  font-family: $ff-alt;
+  color: $cinza;
+  font-style: italic;
+  line-height: 1;
 }
 
 h4.chapeu {
