@@ -3,7 +3,7 @@
 
 	$(function () {
 		var $lateral = $('.lateral'),
-			$lateralM = $('.lateralMenor'),
+			// $lateralM = $('.lateralMenor'),
 			$conteudo = $('section');
 
 		function abreLateral() {
