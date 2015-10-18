@@ -161,22 +161,42 @@ h1.h1azul {
 
 h1 {
   font-family: "Martel", serif;
-  font-size: 4rem;
+  font-size: 8rem;
   color: #34a0a7;
   margin-bottom: 0;
+  margin-left: 40px;
+  text-indent: -40px;
+}
+h1:first-line {
+  font-size: 80%;
 }
 
 h1.tituloHistoria {
-  font-size: 6rem;
+  font-size: 7rem;
   color: #752636;
   font-style: italic;
   font-family: "adobe-caslon-pro", serif;
   font-weight: 100;
+  margin-left: 0;
+  text-indent: 0;
+  line-height: 1.2;
+}
+h1.tituloHistoria:first-line {
+  font-size: 100%;
 }
 
 h1.tituloMarrom {
   font-size: 8rem;
   color: #836b60;
+  font-style: italic;
+  font-family: "adobe-caslon-pro", serif;
+  font-weight: 100;
+  line-height: 1;
+}
+
+h1.tituloCinza {
+  font-size: 10rem;
+  color: #444;
   font-style: italic;
   font-family: "adobe-caslon-pro", serif;
   font-weight: 100;
